@@ -1,29 +1,5 @@
 # chat app
 
-## 環境設定
-
-### .env
-
-・52行目
-
-```env
-MAIL_USERNAME=example@gmail.com
-```
-
-適切なメールアドレスに変える
-
-・53行目
-
-```env
-MAIL_PASSWORD=password
-```
-
-適切なアプリパスワードに変える
-
-以下はアプリパスワードへのリンク
-
-[https://myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
-
 ## Dockerを使って動かす
 
 Docker環境が必要です
@@ -40,7 +16,8 @@ make build
 make start
 ```
 
-起動するとターミナルにアプリケーションのリンクが出てきます
+- アプリケーションのリンク
+- [http://0.0.0.0:8000/home](http://0.0.0.0:8000/home)
 
 ## cloneした場合
 
@@ -48,9 +25,10 @@ make start
 
 こちらからクローンしてください
 
-[https://github.com/k22036/final-chat-app](https://github.com/k22036/final-chat-app)
+[https://github.com/k22036/schedule-manager](https://github.com/k22036/schedule-manager)
 
-.env.exampleに従って環境設定をする必要があります
+- .envを作成してください
+- .envに.env.exampleの内容をコピーしてください
 
 ## 開発用
 
@@ -76,22 +54,8 @@ php artisan migrate:fresh
 
 ## 利用技術
 
-・Supabase
+- Laravel Breeze
 
-・Laravel Breeze
-
-### 参考
-
-[GitのコミットメッセージにPrefixをつけよう！](https://qiita.com/a_ya_ka/items/c472a02051d78e4c0855)
-
-[Creating a Laravel Project](https://laravel.com/docs/11.x/installation#creating-a-laravel-project)
-
-[Use Supabase with Laravel](https://supabase.com/docs/guides/getting-started/quickstarts/laravel)
+## 参考
 
 ## 課題
-
-・同じ名前のユーザが存在している時の処理が怪しい
-
-・アイコンの機能が未実装
-
-・ユーザ情報を変更した際の処理を考える必要あり
