@@ -42,11 +42,19 @@ RUN docker-php-ext-install pdo_mysql
 WORKDIR /var/www/html
 COPY . /var/www/html
 
-# setting laravel
-EXPOSE 80
+# set permission
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html/storage \
+    && chmod -R 755 /var/www/html/bootstrap/cache
 
-WORKDIR /var/www/html
+# Composer の依存関係のインストール
+RUN composer install
+
+# Node.js の依存関係のインストールとビルド
 RUN npm install --save-dev vite vite-plugin-laravel
 RUN npm run build
+
+# Laravel Breeze のインストール（必要な場合）
 RUN composer require laravel/breeze --dev
-RUN composer install
+
+EXPOSE 8000
